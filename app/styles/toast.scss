@@ -1,0 +1,103 @@
+#toastContainer {
+    z-index: 999;
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    max-width: 600px;
+    width: 100vw;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transform: translate(-50%, 0);
+
+    .toast {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        height: fit-content;
+        min-height: 40px;
+        border-radius: 4px;
+        background-color: #369;
+        padding-left: 10px;
+        box-sizing: border-box;
+        color: white;
+        box-shadow: -4px 4px 8px rgba($color: #000000, $alpha: 0.5);
+        animation: grow 300ms ease 1;
+
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+
+        .text {
+            z-index: 2;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        &.progress {
+            animation: colorchange 2s ease infinite;
+
+
+            .bar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 0;
+                background-color: rgba($color: #000000, $alpha: 0.5);
+            }
+
+            @keyframes colorchange {
+                0% {
+
+                    background-color: rgb(108, 88, 148);
+                }
+
+                50% {
+                    background-color: rgb(142, 148, 88);
+                }
+
+                100% {
+                    background-color: rgb(108, 88, 148);
+                }
+            }
+        }
+
+        @keyframes grow {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        &.hide {
+            animation: hide 300ms ease 1;
+
+            @keyframes hide {
+                to {
+                    opacity: 0;
+                    transform: scale(0.5);
+                }
+            }
+        }
+
+        i.clearclose {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        &:success {
+            background-color: #9f9 !important;
+        }
+
+        &:error {
+            background-color: #f99 !important;
+        }
+    }
+}

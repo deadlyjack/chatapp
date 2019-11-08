@@ -1,0 +1,48 @@
+#app {
+    position: relative;
+    transform: none;
+    box-shadow: none;
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    max-width: unset;
+    max-height: unset;
+    padding: 0;
+
+    >nav {
+        background-color: $primaryColor;
+        transition: all 300ms ease;
+        transform: translate3d(-110%, 0, 0);
+        z-index: 999;
+
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    #profile {
+        box-shadow: none;
+    }
+
+    >header {
+        border-radius: 0;
+
+        #nav-toggler {
+            position: relative;
+            display: inline-flex;
+
+            &.notice {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 22px;
+                    right: 18px;
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                    background-color: orange;
+                }
+            }
+        }
+    }
+}

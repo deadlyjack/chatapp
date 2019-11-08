@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/logo/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/logo/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/res/icons/style.css">
+    <title>Chat App</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="lead">
+                <i id="nav-toggler" class="icon menu"></i>
+            </div>
+            <div class="title" id="app-title">
+                <i class="icon logo chat_bubble"></i>
+                <h2>CHAT APP</h2>
+            </div>
+            <div class="tail">
+                <span class="icon more_vert"></span>
+
+                <div id="contextMenu">
+                    <span>clear chat</span>
+                    <span>block</span>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div id="profile" {{#avatar}} data-avatar="{{.}}" {{/avatar}} {{#name}} data-name="{{.}}" {{/name}}
+                {{#phone}} data-phone="{{.}}" {{/phone}}>
+                <span class="avatar" {{#avatar}} style="background-image: url({{.}})" {{/avatar}}></span>
+                <button class="icon logout" id="logout"></button>
+            </div>
+            <input type="search" name="search-contact" id="search-contact" placeholder="search contact">
+            <ul id="contacts"></ul>
+            <button id="add-contact" class="icon person_add"></button>
+        </nav>
+        <main></main>
+    </div>
+    <div id="toastContainer"></div>
+    <audio src="/res/audio/newmessage.mp3" id="notification-new_message"></audio>
+    <audio src="/res/audio/online.mp3" id="notification-online"></audio>
+    <audio src="/res/audio/pop.mp3" id="sound-pop"></audio>
+    <audio src="/res/audio/pop2.mp3" id="sound-pop2"></audio>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+</body>
+
+</html>

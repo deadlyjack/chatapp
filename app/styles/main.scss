@@ -1,0 +1,267 @@
+@import './variables.scss';
+@import './profile-dialog.scss';
+@import './toast.scss';
+@import './chat.scss';
+@import './contacts.scss';
+@import './conxtemenu.scss';
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #ccc;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar {
+    display: inline-block;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/res/default-avatar.png);
+    background-position: center;
+    background-color: #f95;
+}
+
+#app {
+    position: relative;
+    height: 90%;
+    max-height: 90%;
+    width: 90%;
+    max-width: 900px;
+    background-color: $primaryColor;
+    box-shadow: 0 0 20px $textColor;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    padding-left: 300px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    >header {
+        height: 60px;
+        width: 100%;
+        box-shadow: 0 0 8px #333;
+        display: flex;
+        align-items: center;
+        color: white;
+
+        .title {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .avatar {
+                height: 40px;
+                width: 40px;
+                margin-right: 10px;
+            }
+
+            .logo {
+                width: unset;
+                margin-right: 5px;
+            }
+        }
+
+
+        #nav-toggler {
+            display: none;
+        }
+
+        .icon {
+            height: 60px;
+            width: 60px;
+            font-size: 1.2em;
+
+            &.logo {
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    main {
+        height: calc(100% - 60px);
+        width: 100%;
+        background-color: white;
+        color: #333;
+    }
+
+    >nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        border-radius: 0 0 0 4px;
+        overflow-x: hidden;
+
+        input[type=search] {
+            height: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: none;
+            margin: 5px;
+            width: calc(100% - 10px);
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 4px darken($color: $primaryColor, $amount: 20);
+            }
+        }
+
+        #add-contact {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            border: none;
+            background-color: white;
+            color: $primaryColor;
+            border-radius: 50%;
+            box-shadow: 0 0 4px darken($color: $primaryColor, $amount: 20);
+            font-size: 1.4em;
+        }
+    }
+}
+
+#profile {
+    position: relative;
+    height: 150px;
+    margin-bottom: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(/res/default-cover-min.jpg);
+    box-shadow: inset -6px -6px 20px 0px #039;
+
+    .avatar {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        height: 100px;
+        width: 100px;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.2);
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(0, 100%);
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    &:empty {
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+            content: 'Open chat from side menu';
+            font-size: 1.43em;
+            color: #999;
+        }
+    }
+
+    #content {
+        flex: 1;
+
+        &:empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::before {
+                content: 'No messages write now';
+                font-size: 1.43em;
+                color: #999;
+            }
+        }
+    }
+
+    #input {
+        min-height: 60px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 5px;
+
+        .input {
+            flex: 1;
+            min-height: 50px;
+            border-radius: 25px;
+            max-height: 100px;
+            padding: 15px;
+            height: fit-content;
+            border: solid 1px #ccc;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+            overflow-y: auto;
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 4px #ccc;
+            }
+
+            &:empty {
+                display: flex;
+                align-items: center;
+
+                &::before {
+                    content: attr(aria-placeholder);
+                    color: #aaa;
+                }
+            }
+        }
+
+        .send {
+            margin-left: 5px;
+            border-radius: 50%;
+            border: none;
+            border-radius: 50%;
+            background-color: $primaryColor;
+            color: white;
+            font-size: 1.4em;
+        }
+    }
+}
+
+a.icon {
+    text-decoration: none;
+    color: inherit;
+}
+
+button.icon {
+    border: none;
+    background-color: inherit;
+
+    &:active {
+        transform: scale(0.8);
+    }
+}
+
+.icon {
+    display: inline-flex;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 700px) {
+    @import './mobile.scss';
+}

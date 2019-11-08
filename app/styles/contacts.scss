@@ -1,0 +1,76 @@
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primaryColor;
+
+    &:hover {
+        background-color: darken($color: $primaryColor, $amount: 10);
+    }
+}
+
+#contacts {
+    list-style: none;
+    max-height: calc(100% - 250px);
+    overflow: auto;
+
+    >li {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        color: white;
+        box-sizing: border-box;
+        padding: 5px 0 5px 10px;
+        cursor: pointer;
+
+        &.online {
+            &::after {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                content: '•';
+                color: rgb(116, 255, 116);
+                font-size: 2em;
+                height: 100%;
+                width: 40px;
+            }
+        }
+
+        .unread:not(:empty) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5px;
+            width: 5px;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #ff4040;
+            color: white;
+            font-size: 0.8em;
+            margin: 10px;
+        }
+
+        &.active,
+        &:active {
+            background-color: #28e;
+        }
+
+        .avatar {
+            height: 40px;
+            width: 40px;
+        }
+
+        .name {
+            flex: 1;
+            line-height: 40px;
+            box-sizing: border-box;
+            padding-left: 10px;
+            pointer-events: none;
+        }
+    }
+}

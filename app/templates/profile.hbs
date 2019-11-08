@@ -1,0 +1,10 @@
+<div id="profile-dialog" {{#coords}}style="transform: scale(0.5) translate3d({{x}}px, {{y}}px, 0)" {{/coords}}>
+    <label class="avatar" {{#avatar}} style="background-image: url({{.}})" {{/avatar}} data-phone="{{phone}}">
+        <input type="file" name="avatar" id="avatar-input" hidden accept="image/*">
+    </label>
+    <input type="text" value="{{name}}" placeholder="name" id="user-name">
+    <div class="button-container">
+        <button action='cancel'>cancel</button>
+        <button action='save'>save</button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+#contextMenu {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    min-width: 180px;
+
+    border-radius: 4px;
+    background-color: white;
+
+    display: none;
+
+    box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.2);
+
+    span {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        line-height: 40px;
+        color: black;
+        padding: 10px;
+        box-sizing: border-box;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+}

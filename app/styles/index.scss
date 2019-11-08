@@ -1,0 +1,75 @@
+@import './variables.scss';
+@import './dialogs.scss';
+@import './tile.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    &:focus {
+        outline: none;
+    }
+
+    &.icon {
+        height: 50px;
+        width: 50px;
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}
+
+.button-container {
+    height: 60px;
+    display: flex;
+    width: 100%;
+
+    .saperator {
+        display: block;
+        height: 100%;
+        width: 1px;
+        background-color: #ccc;
+    }
+
+    button {
+        flex: 1;
+        border: none;
+        background-color: white;
+        color: $primaryColor;
+        font-size: 1.2em;
+
+        &:disabled {
+            pointer-events: none;
+            color: #666;
+        }
+
+        &.loading {
+            color: transparent !important;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-image: url(/res/rings.svg)
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            background-color: darken($color: $primaryColor, $amount: 10);
+            color: white;
+        }
+    }
+}
+
+.mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.1;
+    height: 100vh;
+    width: 100vw;
+}

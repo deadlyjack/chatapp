@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/res/icons/style.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/account.css">
+    <title>chat app - login</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1> <i class="icon chat_bubble"></i> chat app</h1>
+        <div role="form" id="form">
+            <div class="inputs">
+                <input autofocus type="tel" name="phone" id="phone" placeholder="phone">
+                <input type="password" name="password" id="password" placeholder="password">
+            </div>
+            <span id="error-log"></span>
+            <span id="success-log"></span>
+            <div class="button-container">
+                <button id="signup">signup?</button>
+                <button id="login">login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/account.js"></script>
+</body>
+
+</html>
