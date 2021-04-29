@@ -14,7 +14,7 @@
   "dependencies": {
     "autoprefixer": "^9.6.1",
     "autosize": "^4.0.2",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "hbs": "^4.0.5",
